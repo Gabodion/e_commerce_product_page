@@ -28,7 +28,7 @@ products = [
         "price": "125.00",
         "percent": "50",
         "lastPrice": "250.00",
-        "imgSrc": "images/image-product-1.jpg",
+        "imgSrc": "static/images/image-product-1.jpg",
         "desc": "These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer."
     }
 ]
@@ -82,7 +82,7 @@ nextBtn.addEventListener("click", () => {
         nextpix = 1;
     }
     
-    productImage.src = `images/image-product-${nextpix}.jpg`
+    productImage.src = `static/images/image-product-${nextpix}.jpg`
         
 })
 // lightbox mobile view change with back button
@@ -92,7 +92,7 @@ backBtn.addEventListener("click", () => {
     if(nextpix === 0){
         nextpix = 4;
     }
-    productImage.src = `images/image-product-${nextpix}.jpg`
+    productImage.src = `static/images/image-product-${nextpix}.jpg`
 })
 
 // lightbox popImage
@@ -102,7 +102,7 @@ productCarousel.addEventListener("click", () => {
         const newNode = productCarousel.cloneNode(true);
         const closeBtn = document.createElement("img");
         closeBtn.className = "close-btn"
-        closeBtn.src = "images/icon-close.svg"
+        closeBtn.src = "static/images/icon-close.svg"
         newNode.style.width = "400px";
         // remove duplicate image
         while(backgroundOverlay.firstChild){
@@ -130,7 +130,7 @@ productCarousel.addEventListener("click", () => {
                 if (nextpix === 5){
                     nextpix = 1;
                 }      
-                overlayImages.src = `images/image-product-${nextpix}.jpg`  
+                overlayImages.src = `static/images/image-product-${nextpix}.jpg`  
             })
             // lightbox overlay-image change with back button
             const backBtn = backgroundOverlay.querySelector(".back")
@@ -139,7 +139,7 @@ productCarousel.addEventListener("click", () => {
                 if(nextpix === 0){
                     nextpix = 4;
                 }
-                overlayImages.src = `images/image-product-${nextpix}.jpg`
+                overlayImages.src = `static/images/image-product-${nextpix}.jpg`
             })
         })
 
@@ -209,7 +209,7 @@ function addToCartList(product){
     const cartItem = document.createElement("div");
     cartItem.classList.add("cart-content");
     cartItem.setAttribute("data-id", `${product.id}`);
-    product.imgSrc = "images/image-product-1-thumbnail.jpg";
+    product.imgSrc = "static/images/image-product-1-thumbnail.jpg";
     // get the total amount of item
     totalOfItem = parseFloat(product.price.substr(1)) * parseFloat(product.noOfItem)
     // console.log(totalOfItem)
@@ -218,7 +218,7 @@ function addToCartList(product){
             <img src="${product.imgSrc}" class="cart-item-img" alt="">
             <p>${product.title}<br>
             ${product.price} x ${product.noOfItem} <span>$${totalOfItem}.00</span></p>
-            <button class="delete-btn type="button"><img src="images/icon-delete.svg" class="delete-item" alt=""></button>
+            <button class="delete-btn type="button"><img src="static/images/icon-delete.svg" class="delete-item" alt=""></button>
         </div>
         <a class="cart-checkout">Checkout</a>`
     cartContainer.appendChild(cartItem)
